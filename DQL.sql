@@ -366,24 +366,3 @@ INCREMENT 1;
 INSERT INTO employee (emp_id, first_name, last_name, department, salary, hire_date)
 VALUES (NEXTVAL('emp_seq'), 'Grace', 'Hopper', 'IT', 90000, '2023-01-15');
 
--- Triggers
--- it is a database callback function that automatically executes when specific database events (like INSERT, UPDATE, or DELETE) occur on a table.
-
-CREATE OR REPLACE FUNCTION update_hire_date()
-RETURNS TRIGGER AS $$
-BEGIN
-   NEW.hire_date := CURRENT_DATE;
-   RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER set_hire_date
-BEFORE INSERT ON employee
-FOR EACH ROW
-EXECUTE FUNCTION update_hire_date();
-
-INSERT INTO employee (first_name, last_name, department, salary)
-VALUES ('Alan', 'Turing', 'Research', 95000);
-
-SELECT * FROM employee WHERE first_name = 'Alan';
-
