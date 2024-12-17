@@ -90,9 +90,7 @@ SELECT first_name||last_name from employee where salary=60000;
 
 SELECT first_name, last_name, department FROM employee
 WHERE department = 'HR';
-
--- UNION
-
+UNION
 SELECT first_name, last_name, department FROM employee
 WHERE salary > 70000;
 
@@ -100,9 +98,7 @@ WHERE salary > 70000;
 
 SELECT first_name, last_name, department FROM employee
 WHERE department = 'HR';
-
--- UNION ALL
-
+UNION ALL
 SELECT first_name, last_name, department FROM employee
 WHERE salary > 70000;
 
@@ -110,9 +106,7 @@ WHERE salary > 70000;
 
 SELECT first_name, last_name, department FROM employee
 WHERE department = 'HR';
-
--- INTERSECT
-
+INTERSECT
 SELECT first_name, last_name, department FROM employee
 WHERE salary > 70000;
 
